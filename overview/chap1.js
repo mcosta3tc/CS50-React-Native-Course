@@ -167,3 +167,7 @@ var thisIsNotVarHoisted = function () {
 
 //global variable (not var,..)
 thisIsGlobal = "hello"
+
+
+//Global Object like window
+//in a a node environment "window" object is replace by "global"
