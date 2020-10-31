@@ -171,3 +171,24 @@ thisIsGlobal = "hello"
 
 //Global Object like window
 //in a a node environment "window" object is replace by "global"
+
+
+//Closures
+
+function makeFunctionArray() {
+    const arr = []
+
+    for (var i = 0; i < 5; i++) {
+        arr.push(function (){
+
+            console.log(i)}
+
+            )
+    }
+
+    return arr
+}
+
+const arr = makeFunctionArray()
+
+arr[0] //output 5
