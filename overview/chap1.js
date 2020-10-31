@@ -11,25 +11,24 @@ const t = () => {
 }
 
 const obj = {
-   "a" : 1,
+    "a": 1,
 
-    "z" : "1",
+    "z": "1",
 
-    "e" : [1],
+    "e": [1],
 
     "r": true,
 
-    "t" : () => {
+    "t": () => {
         console.log("1")
     },
 
     "fe": null,
 
     obj: {
-       key: 'key'
+        key: 'key'
     }
 }
-
 
 
 const o = {
@@ -48,7 +47,7 @@ Object.keys(obj).forEach(key => {
 //A shallow copy refers to the fact that only one level is copied, and that will work fine for an array or object containing only primitive values.
 //For objects and arrays containing other objects or arrays, copying these objects requires a deep copy. Otherwise, changes made to the nested references will change the data nested in the original object or array.
 function deepCopy(obj) {
-     //check if values are objects
+    //check if values are objects
     //if so copy that object (deep copy)
     //else return the value
 
@@ -62,7 +61,7 @@ function deepCopy(obj) {
     for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
 
-        if(typeof obj[keys[i]] === 'object') {
+        if (typeof obj[keys[i]] === 'object') {
             newObject[key] = deepCopy(obj[key])
         } else {
             newObject[key] = obj[key];
@@ -77,3 +76,35 @@ const o3 = deepCopy(o);
 o.obj.key = 'new key!'
 
 console.log(o3.obj.key) //log key not new key!
+
+
+//Prototype inheritance
+
+const arr = [];
+
+arr.push('value');
+
+console.log(arr);
+
+arr.push([2]);
+
+console.log(arr);
+
+//log all the prototype functions arr can use
+arr.__proto__
+
+
+// if you change the prototype it will change ever whats happened
+num = 42
+console.log(num.toString()) // 42
+
+Number.prototype.toString = function() {return "1000"}
+
+console.log(num) // 42
+console.log(num.toString()) // 1000
+
+num2 = 56
+console.log(num2) // 56
+console.log(num2.toString()) // 1000
+
+
