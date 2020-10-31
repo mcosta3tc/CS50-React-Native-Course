@@ -1,3 +1,8 @@
+//works because of hoisting
+console.log(hoistFunction())
+//error
+//console.log(thisIsNotHoisted())
+
 const a = 1;
 
 const z = "1";
@@ -108,3 +113,57 @@ console.log(num2) // 56
 console.log(num2.toString()) // 1000
 
 
+//var is declared until the end of the file, but equals to none until the line is set, so if it's called at the beginning undefined =/ undeclared error
+//block scopes:
+//let until th end {}
+//const not to be change later (error)
+const obj4 = {}
+
+//works the pointer is still pointing to the same obj, same place in the memory the reference did not change it's just mutated
+obj4.a = "e"
+
+//console.log(thisIsAConst) // error undefined, js reads line by line
+
+const thisIsAConst = 50
+//isIsAConst++ //error !
+
+let thisIsALet = 50
+thisIsALet = 51
+
+//let thisIsALet = 50 // error already exist, cannot declare twice, =/ var that overshadow the old one
+
+var aVar = 51
+aVar = 56
+
+console.log(aVar)
+
+var aVar = "updated"
+
+console.log(aVar)
+
+//hoisting
+// js take the definition of something and hoists it to the very top of the file and does that first
+//vars, functions =/ const and let
+
+function hoistFunction () {
+    console.log("I'm at the bottom of the file")
+}
+
+//will not work if it's called at the beginning of the file (reference error)
+const thisIsNotHoisted = function () {
+    console.log('Is it works')
+}
+
+//error at the beginning, the variable exist it's undefined it's not a function (type error)
+var thisIsNotVarHoisted = function () {
+    console.log('Is it works')
+}
+
+//Because of how JS works
+//1: Read the all file
+//puts vars function in memory
+//2: execution
+//const and let are invoked
+
+//global variable (not var,..)
+thisIsGlobal = "hello"
